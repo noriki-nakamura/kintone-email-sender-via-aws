@@ -12,7 +12,6 @@ variable "sender_email" {
 variable "sender_name" {
   description = "The display name for the sender"
   type        = string
-  default     = "Scramble 入会調整担当"
 }
 
 variable "project_name" {
