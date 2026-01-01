@@ -1,0 +1,13 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfvars
+.terraform.lock.hcl
+
+# Kintone
+kintone-customization/kintone-config.js
+
+# OS
+.DS_Store
+Thumbs.db
