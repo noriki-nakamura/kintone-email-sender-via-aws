@@ -4,6 +4,7 @@
 *.tfstate.backup
 *.tfvars
 .terraform.lock.hcl
+backend.conf
 
 # Kintone
 kintone-customization/kintone-config.js
