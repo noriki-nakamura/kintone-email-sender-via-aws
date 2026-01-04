@@ -1,7 +1,6 @@
 variable "aws_region" {
   description = "AWS Region to deploy resources"
   type        = string
-  default     = "us-west-2"
 }
 
 variable "sender_email" {
@@ -17,7 +16,6 @@ variable "sender_name" {
 variable "project_name" {
   description = "Project name prefix for resources"
   type        = string
-  default     = "kintone-email-sender"
 }
 
 variable "api_token" {
