@@ -12,21 +12,22 @@ cd <repository-directory>
 
 ### 2. Terraform (AWSリソース) の設定
 
-`terraform/` ディレクトリに移動し、`terraform.tfvars` ファイルを作成して必要な変数を設定します。
+`terraform/` ディレクトリに移動し、`env` ディレクトリ内に環境ごとの `.tfvars` ファイルを作成して必要な変数を設定します。
 
 ```bash
 cd terraform
-cp terraform.tfvars.example terraform.tfvars
+mkdir -p env
+cp env/terraform.tfvars.example env/local.tfvars
 ```
 
-`terraform.tfvars` を編集し、以下の値を設定してください：
+`env/local.tfvars` を編集し、以下の値を設定してください：
 - `sender_email`: 送信元メールアドレス (AWS SESで検証済みである必要があります)
 - `api_token`: API認証用のトークン (任意の文字列)
 
-デプロイを実行します：
+デプロイを実行します（`-var-file` オプションで環境ごとの設定ファイルを指定します）：
 ```bash
 terraform init
-terraform apply
+terraform apply -var-file=env/local.tfvars
 ```
 
 ### 3. Kintone アプリの設定
@@ -52,4 +53,4 @@ window.KintoneConfig = {
 ```
 
 ## 注意事項
-- `terraform.tfvars` や `kintone-config.js` には機密情報が含まれるため、Git リポジトリにはコミットしないでください (すでに `.gitignore` に設定されています)。
+- `env/*.tfvars` や `kintone-config.js` には機密情報が含まれるため、Git リポジトリにはコミットしないでください (すでに `.gitignore` に設定されています)。
